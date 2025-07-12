@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, Github, Code, Brain, Pocket as Docker, Terminal } from 'lucide-react';
+import { ExternalLink, Github, Code, Brain, Pocket as Docker, Terminal, MessageCircle, Mail, Smartphone, Twitter, Instagram, Linkedin, AlertTriangle, Settings } from 'lucide-react';
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
@@ -26,6 +26,95 @@ const Projects = () => {
       color: 'from-purple-500 to-pink-500',
       github: 'https://github.com/Rohitpawar4545',
       demo: '#'
+    },
+    // Summer Internship Projects
+    {
+      id: 'emergency-alert',
+      title: 'Emergency Alert System',
+      description: 'Part of my Summer Internship project - Emergency notification system',
+      longDescription: 'Advanced emergency alert system that provides real-time notifications and crisis management capabilities. Features automated alert distribution and response coordination.',
+      technologies: ['Python', 'Alert System', 'Real-time', 'Notifications'],
+      icons: [AlertTriangle, Code, MessageCircle],
+      color: 'from-red-500 to-orange-500',
+      github: 'https://github.com/Rohitpawar4545/summer_internship/blob/main/emergency_alert.py',
+      demo: '#'
+    },
+    {
+      id: 'instagram-automation',
+      title: 'Instagram Automation',
+      description: 'Part of my Summer Internship project - Instagram automation tools',
+      longDescription: 'Automated Instagram management system for content scheduling, engagement tracking, and social media optimization.',
+      technologies: ['Python', 'Instagram API', 'Automation', 'Social Media'],
+      icons: [Instagram, Code, Settings],
+      color: 'from-pink-500 to-purple-500',
+      github: 'https://github.com/Rohitpawar4545/summer_internship/blob/main/insta.py',
+      demo: '#'
+    },
+    {
+      id: 'linkedin-automation',
+      title: 'LinkedIn Automation',
+      description: 'Part of my Summer Internship project - LinkedIn automation tools',
+      longDescription: 'Professional networking automation system for LinkedIn profile management, connection building, and content distribution.',
+      technologies: ['Python', 'LinkedIn API', 'Automation', 'Networking'],
+      icons: [Linkedin, Code, Settings],
+      color: 'from-blue-600 to-blue-800',
+      github: 'https://github.com/Rohitpawar4545/summer_internship/blob/main/linkdin.py',
+      demo: '#'
+    },
+    {
+      id: 'email-automation',
+      title: 'Email Automation System',
+      description: 'Part of my Summer Internship project - Email automation tools',
+      longDescription: 'Automated email management system for bulk email sending, template management, and email campaign tracking.',
+      technologies: ['Python', 'SMTP', 'Email', 'Automation'],
+      icons: [Mail, Code, Settings],
+      color: 'from-green-500 to-teal-500',
+      github: 'https://github.com/Rohitpawar4545/summer_internship/blob/main/mail.py',
+      demo: '#'
+    },
+    {
+      id: 'menu-base',
+      title: 'Menu Base System',
+      description: 'Part of my Summer Internship project - Core menu system',
+      longDescription: 'Comprehensive menu-based application framework providing modular functionality and user-friendly interface management.',
+      technologies: ['Python', 'CLI', 'Menu System', 'Framework'],
+      icons: [Terminal, Code, Settings],
+      color: 'from-gray-600 to-gray-800',
+      github: 'https://github.com/Rohitpawar4545/summer_internship/blob/main/menu_base.py',
+      demo: '#'
+    },
+    {
+      id: 'menu-python',
+      title: 'Python Menu System',
+      description: 'Part of my Summer Internship project - Python menu implementation',
+      longDescription: 'Specialized Python menu system with enhanced functionality and improved user experience for command-line applications.',
+      technologies: ['Python', 'CLI', 'Menu System', 'User Interface'],
+      icons: [Terminal, Code, Settings],
+      color: 'from-yellow-500 to-orange-500',
+      github: 'https://github.com/Rohitpawar4545/summer_internship/blob/main/menu_python.py',
+      demo: '#'
+    },
+    {
+      id: 'sms-automation',
+      title: 'SMS Automation System',
+      description: 'Part of my Summer Internship project - SMS automation tools',
+      longDescription: 'Automated SMS messaging system for bulk text messaging, notification services, and communication management.',
+      technologies: ['Python', 'SMS API', 'Automation', 'Communication'],
+      icons: [Smartphone, Code, MessageCircle],
+      color: 'from-indigo-500 to-purple-500',
+      github: 'https://github.com/Rohitpawar4545/summer_internship/blob/main/sms.py',
+      demo: '#'
+    },
+    {
+      id: 'twitter-automation',
+      title: 'Twitter Automation',
+      description: 'Part of my Summer Internship project - Twitter automation tools',
+      longDescription: 'Automated Twitter management system for content posting, engagement tracking, and social media optimization.',
+      technologies: ['Python', 'Twitter API', 'Automation', 'Social Media'],
+      icons: [Twitter, Code, Settings],
+      color: 'from-blue-400 to-blue-600',
+      github: 'https://github.com/Rohitpawar4545/summer_internship/blob/main/twitter.py',
+      demo: '#'
     }
   ];
 
@@ -40,7 +129,7 @@ const Projects = () => {
         </p>
       </div>
       
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => (
           <div
             key={project.id}
@@ -48,61 +137,61 @@ const Projects = () => {
             onMouseEnter={() => setHoveredProject(project.id)}
             onMouseLeave={() => setHoveredProject(null)}
           >
-            <div className={`project-card rounded-2xl bg-gradient-to-r ${project.color} p-1 animate-slideInUp`}
-                 style={{ animationDelay: `${index * 0.2}s` }}>
-              <div className="w-full h-full rounded-2xl bg-gray-900 glass-effect relative overflow-hidden">
-                <div className="p-8">
-                  <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-2xl font-bold text-white">{project.title}</h3>
-                    <div className="flex space-x-2">
+            <div className={`project-card rounded-xl bg-gradient-to-r ${project.color} p-1 animate-slideInUp`}
+                 style={{ animationDelay: `${index * 0.1}s` }}>
+              <div className="w-full h-full rounded-xl bg-gray-900 glass-effect relative overflow-hidden">
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-lg font-bold text-white">{project.title}</h3>
+                    <div className="flex space-x-1">
                       {project.icons.map((Icon, iconIndex) => (
-                        <Icon key={iconIndex} className="w-6 h-6 text-gray-400 animate-pulse3d" />
+                        <Icon key={iconIndex} className="w-5 h-5 text-gray-400 animate-pulse3d" />
                       ))}
                     </div>
                   </div>
                   
-                  <p className="text-gray-300 mb-6 leading-relaxed">
+                  <p className="text-gray-300 mb-4 leading-relaxed text-sm">
                     {hoveredProject === project.id ? project.longDescription : project.description}
                   </p>
                   
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-1 mb-4">
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 bg-gray-800 text-cyan-400 rounded-full text-sm font-medium"
+                        className="px-2 py-1 bg-gray-800 text-cyan-400 rounded-full text-xs font-medium"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
                   
-                  <div className="flex space-x-4">
+                  <div className="flex space-x-3">
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-2 px-4 py-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
+                      className="flex items-center space-x-1 px-3 py-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors text-sm"
                     >
-                      <Github className="w-4 h-4" />
+                      <Github className="w-3 h-3" />
                       <span>Code</span>
                     </a>
                     <a
                       href={project.demo}
-                      className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg hover:from-cyan-600 hover:to-purple-600 transition-colors"
+                      className="flex items-center space-x-1 px-3 py-2 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg hover:from-cyan-600 hover:to-purple-600 transition-colors text-sm"
                     >
-                      <ExternalLink className="w-4 h-4" />
+                      <ExternalLink className="w-3 h-3" />
                       <span>Demo</span>
                     </a>
                   </div>
                 </div>
                 
                 {hoveredProject === project.id && (
-                  <div className="absolute inset-0 bg-black bg-opacity-20 rounded-2xl flex items-center justify-center">
+                  <div className="absolute inset-0 bg-black bg-opacity-20 rounded-xl flex items-center justify-center">
                     <div className="text-center">
-                      <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full flex items-center justify-center animate-pulse3d">
-                        <ExternalLink className="w-8 h-8 text-white" />
+                      <div className="w-12 h-12 mx-auto mb-3 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full flex items-center justify-center animate-pulse3d">
+                        <ExternalLink className="w-6 h-6 text-white" />
                       </div>
-                      <p className="text-white font-semibold">Click to explore</p>
+                      <p className="text-white font-semibold text-sm">Click to explore</p>
                     </div>
                   </div>
                 )}
