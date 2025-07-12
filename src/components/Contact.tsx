@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Check } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Check, AlertCircle, ExternalLink } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,28 +9,51 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
+    // Clear error when user starts typing
+    if (error) setError('');
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError('');
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    setTimeout(() => {
-      setIsSubmitted(false);
+    try {
+      // Create mailto link with form data
+      const subject = `Portfolio Contact from ${formData.name}`;
+      const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
+      
+      const mailtoLink = `mailto:rohitpawar92006@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      // Open default email client
+      window.open(mailtoLink, '_blank');
+      
+      setIsSubmitted(true);
       setFormData({ name: '', email: '', message: '' });
-    }, 3000);
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 5000);
+      
+    } catch (err) {
+      console.error('Email opening failed:', err);
+      setError('Failed to open email client. Please contact me directly at rohitpawar92006@gmail.com');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleDirectEmail = () => {
+    const mailtoLink = 'mailto:rohitpawar92006@gmail.com?subject=Portfolio%20Inquiry';
+    window.open(mailtoLink, '_blank');
   };
 
   return (
@@ -60,7 +83,13 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-gray-400 text-sm">Email</p>
-                  <p className="text-white font-medium">rohitpawar92006@gmail.com</p>
+                  <button 
+                    onClick={handleDirectEmail}
+                    className="text-white font-medium hover:text-cyan-400 transition-colors flex items-center space-x-1"
+                  >
+                    <span>rohitpawar92006@gmail.com</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </button>
                 </div>
               </div>
               
@@ -90,6 +119,13 @@ const Contact = () => {
         <div className="animate-slideInRight">
           <form onSubmit={handleSubmit} className="glass-effect rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-white mb-6">Send Message</h3>
+            
+            {error && (
+              <div className="mb-6 p-4 bg-red-900/20 border border-red-500/30 rounded-lg flex items-center space-x-2">
+                <AlertCircle className="w-5 h-5 text-red-400" />
+                <p className="text-red-400 text-sm">{error}</p>
+              </div>
+            )}
             
             <div className="space-y-6">
               <div>
@@ -148,12 +184,12 @@ const Contact = () => {
                 {isSubmitting ? (
                   <>
                     <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                    <span>Sending...</span>
+                    <span>Opening Email Client...</span>
                   </>
                 ) : isSubmitted ? (
                   <>
                     <Check className="w-5 h-5" />
-                    <span>Message Sent!</span>
+                    <span>Email Client Opened!</span>
                   </>
                 ) : (
                   <>
@@ -162,6 +198,12 @@ const Contact = () => {
                   </>
                 )}
               </button>
+            </div>
+            
+            <div className="mt-4 text-center">
+              <p className="text-gray-400 text-sm">
+                This will open your default email client with a pre-filled message
+              </p>
             </div>
           </form>
         </div>
