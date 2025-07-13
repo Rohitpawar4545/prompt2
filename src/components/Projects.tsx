@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, Github, Code, Brain, Pocket as Docker, Terminal, MessageCircle, Mail, Smartphone, Twitter, Instagram, Linkedin, AlertTriangle, Settings } from 'lucide-react';
+import { ExternalLink, Github, Code, Brain, Pocket as Docker, Terminal, MessageCircle, Mail, Smartphone, Twitter, Instagram, Linkedin, AlertTriangle, Settings, FileText } from 'lucide-react';
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
@@ -28,6 +28,17 @@ const Projects = () => {
       demo: '#'
     },
     // Summer Internship Projects
+    {
+      id: 'readme-docs',
+      title: 'Project Documentation',
+      description: 'Part of my Summer Internship project - Comprehensive project documentation',
+      longDescription: 'Detailed documentation and README files for the summer internship project, providing comprehensive overview, setup instructions, and usage guidelines for all automation tools.',
+      technologies: ['Markdown', 'Documentation', 'README', 'Project Setup'],
+      icons: [FileText, Code, Settings],
+      color: 'from-gray-500 to-gray-700',
+      github: 'https://github.com/Rohitpawar4545/summer_internship/blob/main/README.md',
+      demo: '#'
+    },
     {
       id: 'emergency-alert',
       title: 'Emergency Alert System',
@@ -167,15 +178,6 @@ const Projects = () => {
                   
                   <div className="flex space-x-3">
                     <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center space-x-1 px-3 py-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors text-sm"
-                    >
-                      <Github className="w-3 h-3" />
-                      <span>Code</span>
-                    </a>
-                    <a
                       href={project.demo}
                       className="flex items-center space-x-1 px-3 py-2 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg hover:from-cyan-600 hover:to-purple-600 transition-colors text-sm"
                     >
@@ -196,6 +198,19 @@ const Projects = () => {
                   </div>
                 )}
               </div>
+            </div>
+            
+            {/* GitHub Icon Below Card */}
+            <div className="mt-4 flex justify-center">
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View on GitHub"
+                className="group p-3 bg-gray-800 rounded-full hover:bg-gray-700 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-cyan-500/25"
+              >
+                <Github className="w-6 h-6 text-gray-400 group-hover:text-cyan-400 transition-colors duration-300" />
+              </a>
             </div>
           </div>
         ))}
