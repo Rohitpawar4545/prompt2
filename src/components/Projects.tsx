@@ -140,7 +140,7 @@ const Projects = () => {
         </p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {projects.map((project, index) => (
           <div
             key={project.id}
@@ -151,35 +151,35 @@ const Projects = () => {
             <div className={`project-card rounded-xl bg-gradient-to-r ${project.color} p-1 animate-slideInUp`}
                  style={{ animationDelay: `${index * 0.1}s` }}>
               <div className="w-full h-full rounded-xl bg-gray-900 glass-effect relative overflow-hidden">
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-lg font-bold text-white">{project.title}</h3>
+                <div className="p-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-base font-bold text-white">{project.title}</h3>
                     <div className="flex space-x-1">
                       {project.icons.map((Icon, iconIndex) => (
-                        <Icon key={iconIndex} className="w-5 h-5 text-gray-400 animate-pulse3d" />
+                        <Icon key={iconIndex} className="w-4 h-4 text-gray-400 animate-pulse3d" />
                       ))}
                     </div>
                   </div>
                   
-                  <p className="text-gray-300 mb-4 leading-relaxed text-sm">
+                  <p className="text-gray-300 mb-3 leading-relaxed text-xs">
                     {hoveredProject === project.id ? project.longDescription : project.description}
                   </p>
                   
-                  <div className="flex flex-wrap gap-1 mb-4">
+                  <div className="flex flex-wrap gap-1 mb-3">
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-1 bg-gray-800 text-cyan-400 rounded-full text-xs font-medium"
+                        className="px-1.5 py-0.5 bg-gray-800 text-cyan-400 rounded-full text-xs font-medium"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
                   
-                  <div className="flex space-x-3">
+                  <div className="flex space-x-2">
                     <a
                       href={project.demo}
-                      className="flex items-center space-x-1 px-3 py-2 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg hover:from-cyan-600 hover:to-purple-600 transition-colors text-sm"
+                      className="flex items-center space-x-1 px-2 py-1.5 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg hover:from-cyan-600 hover:to-purple-600 transition-colors text-xs"
                     >
                       <ExternalLink className="w-3 h-3" />
                       <span>Demo</span>
@@ -201,15 +201,15 @@ const Projects = () => {
             </div>
             
             {/* GitHub Icon Below Card */}
-            <div className="mt-4 flex justify-center">
+            <div className="mt-2 flex justify-center">
               <a
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="View on GitHub"
-                className="group p-3 bg-gray-800 rounded-full hover:bg-gray-700 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-cyan-500/25"
+                className="group p-2 bg-gray-800 rounded-full hover:bg-gray-700 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-cyan-500/25"
               >
-                <Github className="w-6 h-6 text-gray-400 group-hover:text-cyan-400 transition-colors duration-300" />
+                <Github className="w-5 h-5 text-gray-400 group-hover:text-cyan-400 transition-colors duration-300" />
               </a>
             </div>
           </div>
