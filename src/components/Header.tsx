@@ -48,22 +48,10 @@ const Header = () => {
             <a
               href="/Rohit_Pawar_Resume.pdf"
               download
-              className="relative flex items-center space-x-2 px-6 py-3 rounded-full font-semibold bg-gradient-to-r from-cyan-500 to-green-500 neon-border-3d shadow-xl transition-transform duration-200 hover:scale-105 focus:outline-none overflow-hidden group"
-              style={{
-                WebkitTapHighlightColor: 'transparent',
-              }}
-              onClick={e => {
-                const btn = e.currentTarget;
-                const ripple = document.createElement('span');
-                ripple.className = 'ripple';
-                ripple.style.left = `${e.nativeEvent.offsetX}px`;
-                ripple.style.top = `${e.nativeEvent.offsetY}px`;
-                btn.appendChild(ripple);
-                setTimeout(() => ripple.remove(), 600);
-              }}
+              className="flex items-center space-x-2 glass-effect rounded-full px-6 py-3 hover-scale"
             >
-              <Download className="w-5 h-5" />
-              <span>📄 Download Resume</span>
+              <Download className="w-5 h-5 text-cyan-400 animate-pulse3d" />
+              <span className="text-gray-300">📄 Download Resume</span>
             </a>
           </div>
         </div>
