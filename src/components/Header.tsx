@@ -65,7 +65,7 @@ const Header = () => {
             <div className="w-full h-full rounded-full bg-gray-900 glass-effect flex items-center justify-center relative overflow-hidden">
               {/* Profile Photo */}
               <img 
-                src="/WhatsApp Image 2025-07-10 at 22.04.10_94644883.jpg" 
+                src="/profile-photo-new.jpg" 
                 alt="Rohit Pawar - DevOps Engineer" 
                 className="w-full h-full object-cover rounded-full transform transition-all duration-500 group-hover:scale-110 shadow-lg"
                 style={{
