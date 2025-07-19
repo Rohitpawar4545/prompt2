@@ -64,14 +64,15 @@ const Header = () => {
           <div className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-full bg-gradient-to-r from-cyan-400 via-purple-500 to-yellow-400 p-1 hover-scale shadow-2xl">
             <div className="w-full h-full rounded-full bg-gray-900 glass-effect flex items-center justify-center relative overflow-hidden">
               {/* Profile Photo */}
-              <img 
-                src="/profile-photo-new.jpg" 
-                alt="Rohit Pawar - DevOps Engineer" 
-                className="w-full h-full object-cover rounded-full transform transition-all duration-500 group-hover:scale-110 shadow-lg"
-                style={{
-                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
-                }}
-              />
+              <div className="relative w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 mx-auto flex items-center justify-center">
+                <span className="absolute inset-0 rounded-full p-1 bg-gradient-to-r from-cyan-400 via-purple-500 to-yellow-400"></span>
+                <img 
+                  src="/profile-photo.jpg" 
+                  alt="Rohit Pawar - DevOps Engineer" 
+                  className="relative w-full h-full object-cover rounded-full border-4 border-transparent" 
+                  style={{ boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)' }}
+                />
+              </div>
               
               {/* Enhanced Hover overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-full flex items-end justify-center pb-6">
