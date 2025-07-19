@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, Github, Code, Brain, Pocket as Docker, Terminal, MessageCircle, Mail, Smartphone, Twitter, Instagram, Linkedin, AlertTriangle, Settings, FileText } from 'lucide-react';
+import { ExternalLink, Github, Code, Brain, Pocket as Docker, Terminal, MessageCircle, Mail, Smartphone, Twitter, Instagram, Linkedin, AlertTriangle, Settings, FileText, Camera, Globe, Monitor, Image, Server, Download } from 'lucide-react';
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
@@ -125,6 +125,73 @@ const Projects = () => {
       icons: [Twitter, Code, Settings],
       color: 'from-blue-400 to-blue-600',
       github: 'https://github.com/Rohitpawar4545/summer_internship/blob/main/twitter.py',
+      demo: '#'
+    },
+    // New Summer Internship Projects
+    {
+      id: 'website-downloader',
+      title: 'Website Data Downloader',
+      description: 'Streamlit web app for downloading website HTML source code',
+      longDescription: 'A user-friendly web application built with Streamlit that allows users to download HTML source code from any website by simply entering the URL.',
+      technologies: ['Python', 'Streamlit', 'Requests', 'Web Scraping'],
+      icons: [Globe, Code, Download],
+      color: 'from-green-500 to-emerald-500',
+      github: 'https://github.com/Rohitpawar4545/summer_internship/blob/main/website_down.py',
+      demo: '#'
+    },
+    {
+      id: 'camera-capture',
+      title: 'Perfect Frame Photo Capture',
+      description: 'Web-based camera application with JavaScript integration',
+      longDescription: 'Interactive web application that uses device camera to capture photos with perfect framing. Built with Streamlit and custom JavaScript for real-time camera access.',
+      technologies: ['Python', 'Streamlit', 'JavaScript', 'WebRTC'],
+      icons: [Camera, Code, Smartphone],
+      color: 'from-purple-500 to-pink-500',
+      github: 'https://github.com/Rohitpawar4545/summer_internship/blob/main/camera.py',
+      demo: '#'
+    },
+    {
+      id: 'gradio-automation',
+      title: 'Gradio Automation Panel',
+      description: 'Web-based automation panel with file management and command execution',
+      longDescription: 'Advanced automation panel built with Gradio that provides file listing capabilities and command execution through a user-friendly web interface.',
+      technologies: ['Python', 'Gradio', 'Web Interface', 'Automation'],
+      icons: [Monitor, Code, Settings],
+      color: 'from-indigo-500 to-purple-500',
+      github: 'https://github.com/Rohitpawar4545/summer_internship/blob/main/gradio_automation.txt',
+      demo: '#'
+    },
+    {
+      id: 'ram-monitor',
+      title: 'RAM Usage Monitor',
+      description: 'System memory monitoring and analysis tool',
+      longDescription: 'Python-based system monitoring tool that provides detailed RAM usage statistics including total, available, and used memory with percentage calculations.',
+      technologies: ['Python', 'psutil', 'System Monitoring', 'Jupyter'],
+      icons: [Monitor, Code, Settings],
+      color: 'from-orange-500 to-red-500',
+      github: 'https://github.com/Rohitpawar4545/summer_internship/blob/main/read_RAM.ipynb',
+      demo: '#'
+    },
+    {
+      id: 'image-generator',
+      title: 'Custom Image Generator',
+      description: 'PIL-based image creation and manipulation tool',
+      longDescription: 'Advanced image generation tool using Python Imaging Library (PIL) that creates custom images with shapes, text, and graphics programmatically.',
+      technologies: ['Python', 'PIL/Pillow', 'Image Processing', 'Jupyter'],
+      icons: [Image, Code, Settings],
+      color: 'from-teal-500 to-cyan-500',
+      github: 'https://github.com/Rohitpawar4545/summer_internship/blob/main/Image_size.ipynb',
+      demo: '#'
+    },
+    {
+      id: 'apache-docker',
+      title: 'Apache Docker Setup',
+      description: 'Dockerized Apache web server configuration',
+      longDescription: 'Containerized Apache web server setup using Docker for easy deployment and management of web applications.',
+      technologies: ['Docker', 'Apache', 'Web Server', 'Containerization'],
+      icons: [Server, Docker, Settings],
+      color: 'from-gray-600 to-gray-800',
+      github: 'https://github.com/Rohitpawar4545/summer_internship/blob/main/apache%20setup/dockerfile.txt',
       demo: '#'
     }
   ];
